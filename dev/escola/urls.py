@@ -5,8 +5,9 @@ from .views import (
     CursoViewSet, 
     MatriculaViewSet, 
     RelatorioCursosView,
-    relatorio_dashboard,  # <--- Nova importação
-    relatorio_historico   # <--- Nova importação
+    relatorio_dashboard,
+    relatorio_historico,
+    home # <--- Importe a home
 )
 
 router = DefaultRouter()
@@ -15,11 +16,14 @@ router.register(r'cursos', CursoViewSet)
 router.register(r'matriculas', MatriculaViewSet)
 
 urlpatterns = [
+    # Rota Raiz (Landing Page)
+    path('', home, name='home'), # Raiz acessa a Home
+    
     # API endpoints
-    path('', include(router.urls)),
-    path('relatorio-cursos/', RelatorioCursosView.as_view(), name='relatorio-cursos'),
-
-    # Relatórios HTML (Frontend)
-    path('dashboard/', relatorio_dashboard, name='dashboard'),
-    path('historico/', relatorio_historico, name='historico'),
+    path('api/', include(router.urls)), # API acessa via /api/
+    path('api/relatorio-cursos/', RelatorioCursosView.as_view(), name='relatorio-cursos'),
+    
+    # Relatórios HTML
+    path('api/dashboard/', relatorio_dashboard, name='dashboard'),
+    path('api/historico/', relatorio_historico, name='historico'),
 ]
