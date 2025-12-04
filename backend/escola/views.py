@@ -2,9 +2,14 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 from django.db import connection
+from django.shortcuts import render
+
 from .models import Aluno, Curso, Matricula
 from .serializers import AlunoSerializer, CursoSerializer, MatriculaSerializer
+
+# (BACKEND) 
 
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
@@ -57,3 +62,35 @@ class RelatorioCursosView(APIView):
             for row in rows
         ]
         return Response(resultado)
+
+# (FRONTEND) VISUALIZAÇÃO DOS RELATÓRIOS HTML
+
+def relatorio_dashboard(request):
+    """
+    Exibe dashboard geral com totais.
+    Requisitos: Total de alunos, Cursos ativos, Matrículas pagas vs pendentes.
+    """
+    total_alunos = Aluno.objects.count()
+    cursos_ativos = Curso.objects.filter(status='ativo').count()
+    matriculas_pagas = Matricula.objects.filter(status='pago').count()
+    matriculas_pendentes = Matricula.objects.filter(status='pendente').count()
+
+    context = {
+        'total_alunos': total_alunos,
+        'cursos_ativos': cursos_ativos,
+        'matriculas_pagas': matriculas_pagas,
+        'matriculas_pendentes': matriculas_pendentes,
+    }
+    return render(request, 'escola/dashboard.html', context)
+
+def relatorio_historico(request):
+    """
+    Lista histórico do aluno: Cursos matriculados e status.
+    """
+    # prefetch_related otimiza a busca das matrículas para cada aluno
+    alunos = Aluno.objects.prefetch_related('matriculas__curso').all()
+    
+    context = {
+        'alunos': alunos
+    }
+    return render(request, 'escola/historico.html', context)

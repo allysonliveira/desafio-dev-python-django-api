@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Escola</title>
+    <style>
+        /* CSS Básico para cumprir o requisito sem perder tempo com design complexo */
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        .nav { text-align: center; margin-bottom: 20px; padding: 10px; background: #eee; border-radius: 5px; }
+        .nav a { margin: 0 15px; text-decoration: none; color: #007bff; font-weight: bold; }
+        
+        .cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+        .card { background: #007bff; color: white; padding: 20px; border-radius: 8px; width: 150px; text-align: center; }
+        .card.warning { background: #ffc107; color: #333; }
+        .card.success { background: #28a745; }
+        .card.danger { background: #dc3545; }
+        .number { font-size: 2.5em; font-weight: bold; display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/admin/">Admin</a>
+            <a href="/api/dashboard/">Dashboard</a>
+            <a href="/api/historico/">Histórico</a>
+        </div>
+
+        <h1>Dashboard Geral</h1>
+        
+        <div class="cards">
+            <div class="card">
+                <span class="number">{{ total_alunos }}</span>
+                Alunos
+            </div>
+            <div class="card warning">
+                <span class="number">{{ cursos_ativos }}</span>
+                Cursos Ativos
+            </div>
+            <div class="card success">
+                <span class="number">{{ matriculas_pagas }}</span>
+                Pagas
+            </div>
+            <div class="card danger">
+                <span class="number">{{ matriculas_pendentes }}</span>
+                Pendentes
+            </div>
+        </div>
+    </div>
+</body>
+</html>
