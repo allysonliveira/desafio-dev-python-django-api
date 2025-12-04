@@ -1,6 +1,6 @@
-# Desafio Técnico - Estágio Python/Django 2026.1
+# Desafio Técnico - Aplicação Python/Django
 
-Sistema de gerenciamento de alunos, cursos e matrículas. 
+Sistema de gerenciamento de alunos, cursos e matrículas para uma escola.
 
 Desenvolvido por `@allysonliveira`
 
