@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Dev Python</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .container { text-align: center; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 400px; width: 100%; }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        p { color: #7f8c8d; margin-bottom: 30px; }
+        .btn { display: block; width: 100%; padding: 12px 0; margin: 10px 0; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; text-decoration: none; color: white; transition: opacity 0.3s; box-sizing: border-box; }
+        .btn:hover { opacity: 0.9; }
+        
+        /* Cores dos Botões */
+        .btn-admin { background-color: #2c3e50; } /* Azul Escuro */
+        .btn-dash { background-color: #3498db; }  /* Azul Claro */
+        .btn-api { background-color: #27ae60; }   /* Verde */
+        
+        .footer { margin-top: 20px; font-size: 12px; color: #bdc3c7; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Academia Dev Python - Gestão Escolar</h1>
+        <p>Semestre 2026.1</p>
+
+        <a href="/admin/" class="btn btn-admin">Acesso Administrativo (Login)</a>
+        <small style="display:block; color: #999; margin-bottom: 15px;">Cadastrar Alunos, Cursos e Matrículas</small>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+        <a href="/api/dashboard/" class="btn btn-dash">📊 Ver Dashboard</a>
+        <a href="/api/historico/" class="btn btn-dash">📜 Histórico de Alunos</a>
+        <a href="/api/" class="btn btn-api">🔌 Acessar API (Django Rest Framework)</a>
+
+        <div class="footer">
+            Desafio Técnico Tecnotech
+        </div>
+    </div>
+
+</body>
+</html>

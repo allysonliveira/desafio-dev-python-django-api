@@ -1,6 +1,8 @@
-# Desafio Técnico - Estágio Python/Django 2026.1
+# Desafio Técnico - Aplicação Python/Django
 
-Sistema de gerenciamento de alunos, cursos e matrículas desenvolvido para o processo seletivo da Tecnotech Sistemas.
+Sistema de gerenciamento de alunos, cursos e matrículas para uma escola.
+
+Desenvolvido por `@allysonliveira`
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -39,10 +41,14 @@ Sistema de gerenciamento de alunos, cursos e matrículas desenvolvido para o pro
 
 ## 🔗 Acessando a Aplicação
 
-### 🖥️ Frontend (Relatórios HTML)
+
+### 🖥️ Frontend (e Relatórios HTML)
+
+* **Frontend (Home):** [http://localhost:8000/](http://localhost:8000/)
+* **Django Admin:** [http://localhost:8000/admin/](http://localhost:8000/admin/)
 * **Dashboard Geral:** [http://localhost:8000/api/dashboard/](http://localhost:8000/api/dashboard/)
 * **Histórico de Alunos:** [http://localhost:8000/api/historico/](http://localhost:8000/api/historico/)
-* **Django Admin:** [http://localhost:8000/admin/](http://localhost:8000/admin/)
+
 
 ### 🔌 API Endpoints (DRF)
 * **Raiz da API:** [http://localhost:8000/api/](http://localhost:8000/api/)

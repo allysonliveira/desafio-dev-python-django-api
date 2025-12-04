@@ -94,3 +94,9 @@ def relatorio_historico(request):
         'alunos': alunos
     }
     return render(request, 'escola/historico.html', context)
+
+def home(request):
+    """
+    Landing Page que centraliza o acesso.
+    """
+    return render(request, 'escola/home.html')
