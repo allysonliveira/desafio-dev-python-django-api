@@ -13,13 +13,14 @@ services:
       - "5432:5432"
 
   web:
-    build: ./backend
-    # O comando abaixo executa migrações e sobe o servidor automaticamente 
+    # mudei o nome da pasta de ./backend para ./dev
+    build: ./dev 
     command: >
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./backend:/app
+    # mudei o nome da pasta de ./backend:/app para ./dev:/app
+      - ./dev:/app
     ports:
       - "8000:8000"
     environment:
